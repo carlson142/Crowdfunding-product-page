@@ -1,0 +1,53 @@
+:root {
+  --color-primary-moderate-cyan: hsl(176, 50%, 47%);
+  --color-primary-dark-cyan: hsl(176, 72%, 28%);
+
+  --color-secondary-dark-gray: hsl(0, 0%, 48%);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+  font-weight: 400;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-x: hidden;
+
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  width: 144rem;
+
+  background-color: hsl(0, 0%, 95%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 780px) {
+    width: 375px;
+  }
+}
+
+::selection {
+  background-color: var(--color-primary-moderate-cyan);
+  color: white;
+}

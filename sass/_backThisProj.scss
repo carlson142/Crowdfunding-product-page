@@ -1,0 +1,330 @@
+.bTP {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 75rem;
+
+  background-color: white;
+  border-radius: 1rem;
+
+  position: absolute;
+
+  top: 25%;
+
+  z-index: 100;
+
+  padding: 4rem 5rem 5rem 5rem;
+
+  @media (max-width: 780px) {
+    width: 32rem;
+    padding: 2rem;
+  }
+
+  //CLOSE ICON
+  &__closeIcon {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    cursor: pointer;
+  }
+
+  //HEADING
+  &__heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 780px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  //TEXT
+  &__text {
+    font-size: 1.6rem;
+    color: var(--color-secondary-dark-gray);
+    margin-bottom: 3rem;
+
+    @media (max-width: 780px) {
+      font-size: 1.4rem;
+      line-height: 1.6;
+    }
+  }
+
+  //COMPONENT
+  &__component {
+    display: flex;
+    flex-direction: column;
+
+    //ALL BLOCKS
+    .block {
+      border-radius: 1rem;
+      border: 2px solid rgb(224, 224, 224);
+
+      padding: 3rem;
+
+      display: flex;
+      flex-direction: column;
+
+      @media (max-width: 780px) {
+        padding: 2rem;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+
+      // TOP PART OF BLOCK
+      &__top {
+        flex: 0 0 30%;
+
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: 1rem;
+
+        position: relative;
+
+        @media (max-width: 780px) {
+          margin-bottom: 2rem;
+          flex-direction: column;
+        }
+
+        &--input {
+          display: none;
+        }
+
+        &--label {
+          font-size: 1.6rem;
+          font-weight: 700;
+
+          cursor: pointer;
+
+          padding-left: 3.7rem;
+
+          margin-right: 2rem;
+
+          &:hover {
+            color: var(--color-primary-moderate-cyan);
+          }
+
+          &:hover .block__top--radioBTN {
+            border: 1px solid var(--color-primary-moderate-cyan);
+          }
+        }
+
+        &--radioBTN {
+          height: 2rem;
+          width: 2rem;
+
+          border-radius: 50%;
+          border: 1px solid rgb(211, 211, 211);
+
+          display: inline-block;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          &::after {
+            content: "";
+            display: block;
+
+            height: 1rem;
+            width: 1rem;
+
+            background-color: var(--color-primary-moderate-cyan);
+            border-radius: 50%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            opacity: 0;
+          }
+        }
+
+        //CLICK EVENT
+        .block__top--input:checked
+          ~ .block__top--label
+          .block__top--radioBTN::after {
+          opacity: 1;
+        }
+
+        //PLEDGE
+        &--pledge {
+          font-size: 1.6rem;
+          font-weight: bold;
+          color: var(--color-primary-moderate-cyan);
+          margin-right: auto;
+
+          @media (max-width: 780px) {
+            margin-right: 0;
+            margin-left: 3.8rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+          }
+        }
+
+        //LEFT
+        &--bamboo-left {
+          font-size: 1.6rem;
+          color: var(--color-secondary-dark-gray);
+          font-weight: 500;
+
+          @media (max-width: 780px) {
+            text-align: center;
+          }
+        }
+
+        .bamboo-left__value {
+          color: black;
+          font-weight: 700;
+        }
+      }
+
+      // MID PART OF BLOCK
+      &__mid {
+        flex: 0 0 40%;
+
+        &--text {
+          font-size: 1.5rem;
+          color: var(--color-secondary-dark-gray);
+
+          line-height: 1.6;
+
+          margin-left: 3.7rem;
+
+          @media (max-width: 780px) {
+            font-size: 1.4rem;
+            margin-left: 0rem;
+          }
+        }
+      }
+
+      // BOT PART OF BLOCK
+      &__bot {
+        flex: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-top: 2rem;
+        padding-top: 3rem;
+
+        border-top: 1px solid rgb(211, 211, 211);
+
+        @media (max-width: 780px) {
+          flex-direction: column;
+        }
+
+        &--enter {
+          font-size: 1.6rem;
+          color: var(--color-secondary-dark-gray);
+
+          @media (max-width: 780px) {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+          }
+        }
+
+        &--input {
+          margin-left: auto;
+          margin-right: 2rem;
+
+          width: 14rem;
+          padding: 1.5rem 4rem;
+
+          border-radius: 5rem;
+          border: 1px solid var(--color-secondary-dark-gray);
+
+          cursor: pointer;
+
+          color: black;
+          font-size: 1.6rem;
+          font-weight: bold;
+          text-align: center;
+
+          @media (max-width: 780px) {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 2rem;
+          }
+
+          &:focus {
+            outline: none;
+
+            border: 2px solid var(--color-primary-moderate-cyan);
+          }
+
+          &::placeholder {
+            font-size: 1.6rem;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    //BOT PART OF 1 BLOCK
+    .bot-1 {
+      display: none;
+    }
+
+    .btn-bot1 {
+      margin-left: auto;
+    }
+
+    //BOT PART OF 2 BLOCK
+    .bot-2 {
+      display: none;
+    }
+
+    //BOT PART OF 3 BLOCK
+    .bot-3 {
+      display: none;
+    }
+
+    //BOT PART OF 4 BLOCK
+    .bot-4 {
+      display: none;
+    }
+  }
+}
+
+.bot-1.active {
+  display: flex;
+}
+
+.bot-2.active {
+  display: flex;
+}
+
+.bot-3.active {
+  display: flex;
+}
+
+//
+.complete {
+  opacity: 0.6;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//SHOWING UP MODAL WINDOW
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  //height: 100%;  wtf?
+  height: 217rem;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  z-index: 90;
+}
